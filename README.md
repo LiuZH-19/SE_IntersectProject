@@ -180,7 +180,7 @@ IntersectProject/  # 项目名字可自行指定
   - 大量数据测试 ，检测时间是否符合题意
   - 检测 set 是否去重
 
-![单元测试](.\image\单元测试.PNG)
+![单元测试](https://github.com/LiuZH-19/SE_IntersectProject/blob/master/image/单元测试.PNG)
 
 
 
@@ -188,18 +188,18 @@ IntersectProject/  # 项目名字可自行指定
 
 ### 性能改进相关
 
-![](.\image\性能1.PNG)
+![](https://github.com/LiuZH-19/SE_IntersectProject/blob/master/image/性能1.PNG)
 
 
 
 图中可以看出，采用set容器后，构建红黑树占用了绝大部分CPU时间。在建树过程中，用到了我在Point类里面 重写的operator <，故其占用时间也较多。除去set的相关操作外，接下来去看了下 Calculator中的函数。
 
-![](.\image\性能2.PNG)
+![](https://github.com/LiuZH-19/SE_IntersectProject/blob/master/image/性能2.PNG)
 
 
 
 其中 CPU绝大部分的占用时间依然是 set的insert操作。所以在没能想到更优的算法下，性能改进工作可做的很少。**我将一些常用的计算式先算出来，避免之后的重复计算。**例如下图：
-![](.\image\性能3.PNG)
+![](https://github.com/LiuZH-19/SE_IntersectProject/blob/master/image/性能3.PNG)
 
 
 
@@ -209,7 +209,7 @@ IntersectProject/  # 项目名字可自行指定
 
 采用的是“Microsoft建议”的风格。
 
-![无警告](.\image\无警告.PNG)
+![无警告](https://github.com/LiuZH-19/SE_IntersectProject/blob/master/image/无警告.PNG)
 
 
 
