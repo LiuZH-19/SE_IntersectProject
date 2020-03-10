@@ -10,7 +10,15 @@ Point::Point(double a, double b)
 }
 
 bool Point::operator < (const Point& p)const {
-        double dx = abs(x - p.x);
-        double dy = abs(y - p.y);
-        return (dx<EPS ? p.y - y>EPS:p.x - x > EPS);
+    //return x==p.x?y<p.y:x<p.x;
+    return dcmp(x - p.x) == 0 ? dcmp(y - p.y) < 0 : dcmp(x - p.x) < 0;
+
 }
+
+bool Point::operator ==(const Point& p)const {
+    if (dcmp(x-p.x)==0&&dcmp(y-p.y)==0)
+        return true;
+    return false;
+}
+ 
+

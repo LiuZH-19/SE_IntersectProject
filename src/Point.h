@@ -9,6 +9,8 @@ public:
     Point();
     Point(double a, double b);
     bool operator < (const Point& p)const;
+    bool operator ==(const Point& p)const;
+    
 };
 
 #endif // !POINT_H_

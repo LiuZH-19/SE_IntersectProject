@@ -2,9 +2,6 @@
 #include <iostream>
 using namespace std;
 
-void outNode(Point node) {
-    cout << "<" << node.x << "," << node.y << ">" << endl;
-}
 
 Calculator::Calculator() {}
 //此处传引用
@@ -22,7 +19,6 @@ int Calculator::haveIntersection(Line l1, Line l2, set<Point>& nodeSet) {
     double num2 = A2 * C1 - A1 * C2;
     Point  node(num1 / den, num2 / den);
     nodeSet.insert(node);
-    outNode(node);//!
     return 1;
 }
 
@@ -41,10 +37,9 @@ int Calculator::haveIntersection(Circle c, Line l, set<Point>& nodeSet) {
     else {
         double x0 = (B * B * X - A * B * Y - A * C) / (den);
         double y0 = (A * A * Y - A * B * X - B * C) / (den);
-        if (abs(d - R) < EPS) { //直线与圆相切
+        if (dcmp(d-R)==0) { //直线与圆相切
             Point node(x0, y0);
             nodeSet.insert(node);
-            outNode(node);//!
             return 1;
         }
         else {//直线与圆相交
@@ -54,19 +49,15 @@ int Calculator::haveIntersection(Circle c, Line l, set<Point>& nodeSet) {
                 Point node2(x0, y0 - a);
                 nodeSet.insert(node1);
                 nodeSet.insert(node2);
-                outNode(node1);//!
-                outNode(node2);//!
             }
             else {
                 double k = -A / B;
-                double cos = 1 / sqrt(1 + k * k);
-                double sin = k / sqrt(1 + k * k);
+                double cos = abs(B) / sqrt(den);
+                double sin = k*abs(B) / sqrt(den);
                 Point node1(x0 + a * cos, y0 + a * sin);
                 Point node2(x0 - a * cos, y0 - a * sin);
                 nodeSet.insert(node1);
                 nodeSet.insert(node2);
-                outNode(node1);//!
-                outNode(node2);//!
             }
             return 2;
 
@@ -115,7 +106,6 @@ int Calculator::haveIntersection(Circle c1, Circle c2, set<Point>& nodeSet) {
     else if (s == 0) {
         Point node(subs2 / (2 * subs1), subs3 / (2 * subs1));
         nodeSet.insert(node);
-        outNode(node);//!
         return 1;
     }
     else { //相交
@@ -130,8 +120,6 @@ int Calculator::haveIntersection(Circle c1, Circle c2, set<Point>& nodeSet) {
         double y2 = (subs3 + dy) / (2 * subs1);
         Point  node2(x2, y2);
         nodeSet.insert(node2);
-        outNode(node1);//!
-        outNode(node2);//!
         return 2;        
     }
   

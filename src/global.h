@@ -4,7 +4,7 @@
 #include <fstream>
 #include <set>
 #include <vector>
-#define EPS  0.00000001
+#define EPS  0.0000001
 
 struct Line {
 	double A;
@@ -29,6 +29,9 @@ struct Circle {
 		R = r;
 	}
 };
+
+int dcmp(double x);
+
 
 
 #endif // !GLOBAL_H_
