@@ -60,13 +60,8 @@ int Calculator::haveIntersection(Circle c, Line l, set<Point>& nodeSet) {
                 nodeSet.insert(node2);
             }
             return 2;
-
         }
-
     }
-
-
-
 }
 
 
@@ -121,6 +116,5 @@ int Calculator::haveIntersection(Circle c1, Circle c2, set<Point>& nodeSet) {
         Point  node2(x2, y2);
         nodeSet.insert(node2);
         return 2;        
-    }
-  
+    }  
 }

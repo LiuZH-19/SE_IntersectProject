@@ -16,33 +16,35 @@ int countAllinsect(vector<Line> lVec, vector<Circle> cVec, set<Point> &nodeSet){
             calc->haveIntersection(lVec[i], lVec[j], nodeSet);
         }
     }
-
     //计算直线与圆之间的交点
     for (i = 0; i < cVec.size(); i++) {
         for (j = 0; j < lVec.size(); j++) {
             calc->haveIntersection(cVec[i], lVec[j], nodeSet);
         }
     }
-
-    //计算两圆之间的交点
+        //计算两圆之间的交点
     for (i = 0; i < cVec.size(); i++) {
         for (j = i + 1; j < cVec.size(); j++) {
             calc->haveIntersection(cVec[i], cVec[j], nodeSet);
         }
     }
-
     return nodeSet.size();
 }
+
+/*
+int main(){
+    ifstream infile;
+    ofstream outfile;
+    infile.open("input_xn.txt");
+    outfile.open("output_xn.txt");
+*/
+
 
 int main(int argc, char *argv[])
 {   
     ifstream infile;
     ofstream outfile;
-    //cout << argv[1] << endl;
-    //cout << argv[2] << endl;
-    //cout << argv[3] << endl;
-    //cout << argv[4] << endl;
-
+   
     if (strcmp(argv[1] ,"-i")==0) {
         infile.open(argv[2]);
         if (strcmp(argv[3] , "-o")==0) {
@@ -55,7 +57,7 @@ int main(int argc, char *argv[])
             outfile.open(argv[2]);
         }
     }
-  
+ 
     if (!infile.is_open()) {
         cout << "Can't open the input file!" << endl;
     }
@@ -63,7 +65,6 @@ int main(int argc, char *argv[])
         cout << "Can't open the output file!" << endl;
     }
 
-   
     vector<Line> lVec;//存直线
     vector<Circle> cVec;//存圆
     set<Point> nodeSet;
@@ -100,8 +101,6 @@ int main(int argc, char *argv[])
     infile.close();
     outfile.close();
 
-
-    return 0;
- 
+    return 0; 
 }
 
